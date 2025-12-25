@@ -32,7 +32,7 @@ A visually pleasing, pastel-themed 3D calculator inspired by Studio Ghibli aesth
 1. Clone the repository or download the files:
 
 ```bash
-git clone https://github.com/yourusername/ghibli-pastel-calculator.git
+git clone https://github.com/karenlaureta/studio_ghibli_style_calculator.git
 ````
 
 2. Open `index.html` in a web browser. No additional setup is required.
@@ -75,7 +75,7 @@ ghibli-pastel-calculator/
 ## Credits
 
 * Inspired by Studio Ghibli pastel aesthetics.
-* Developed by [Your Name].
+* Developed by Karen Laureta.
 
 ---
 
