@@ -1,6 +1,3 @@
-Here’s a well-structured `README.md` for your **Ghibli Pastel Calculator** project:
-
-````markdown
 # Ghibli Pastel Calculator
 
 A visually pleasing, pastel-themed 3D calculator inspired by Studio Ghibli aesthetics. Built with **HTML, CSS, and JavaScript**, it supports basic arithmetic operations, parentheses, percentages, and real-time calculation history. The interface has a frosted glass effect and interactive 3D button presses for a realistic look and feel.
