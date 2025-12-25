@@ -1,0 +1,142 @@
+/* ===== BODY & BACKGROUND ===== */
+body {
+  margin: 0;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  justify-content: center; /* center calculator horizontally */
+  align-items: center; /* center calculator vertically */
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden; /* prevent scrollbars due to blur */
+}
+
+/* Background layer with blur */
+body::before {
+  content: "";
+  position: fixed; /* stays behind the calculator */
+  inset: 0; /* full screen */
+  background: url('image/sg-bg.jpg') no-repeat center center / cover; /* background image scaled */
+  filter: blur(6px); /* blur effect for soft background */
+  transform: scale(1.05); /* slight zoom for depth */
+  z-index: -2; /* behind everything */
+}
+
+/* Soft overlay to enhance depth */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25); /* semi-transparent white overlay */
+  z-index: -1;
+}
+
+/* ===== CALCULATOR CONTAINER ===== */
+.calculator {
+  width: 360px;
+  padding: 22px;
+  border-radius: 40px;
+  background: linear-gradient(145deg, rgba(240,248,250,0.95), rgba(255,255,255,0.85));
+
+  /* 3D shadows for realistic depth */
+  box-shadow:
+    0 35px 60px rgba(0,0,0,0.25),  /* outer shadow for floating effect */
+    0 15px 25px rgba(0,0,0,0.15),  /* secondary softer shadow */
+    inset 0 2px 3px rgba(255,255,255,0.8), /* inner highlight top */
+    inset 0 -8px 20px rgba(0,0,0,0.08); /* inner shadow bottom */
+
+  backdrop-filter: blur(12px); /* frosted glass effect */
+  transform-style: preserve-3d; /* enable 3D transformations */
+  perspective: 1200px; /* perspective for hover tilt */
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* smooth hover effect */
+}
+
+/* Hover effect: lifts and tilts calculator slightly */
+.calculator:hover {
+  transform: translateY(-6px) rotateX(2deg);
+  box-shadow:
+    0 45px 80px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(255,255,255,0.9);
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  height: 120px;
+  font-size: 4rem; /* large text for numbers */
+  padding: 20px;
+  background: linear-gradient(180deg, #fafafa, #e6f0f2); /* soft pastel gradient */
+  border-radius: 30px;
+  text-align: right; /* align numbers to the right */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* align numbers at bottom */
+  overflow-x: auto; /* allow horizontal scrolling if number too long */
+}
+
+/* Previous calculation / history text */
+#history {
+  font-size: 1.2rem;
+  color: #a09887; /* muted gray for history */
+}
+
+/* ===== BUTTON GRID ===== */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for buttons */
+  gap: 15px; /* spacing between buttons */
+  margin-top: 20px; /* space from display */
+}
+
+/* ===== BUTTON STYLES ===== */
+button {
+  font-size: 2rem;
+  height: 70px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  position: relative;
+
+  /* 3D effect for buttons */
+  box-shadow:
+    0 10px 18px rgba(0,0,0,0.15), /* outer shadow for lift */
+    inset 0 2px 3px rgba(255,255,255,0.6), /* top highlight inside */
+    inset 0 -4px 6px rgba(0,0,0,0.12); /* bottom inner shadow */
+
+  transition: transform 0.12s ease, box-shadow 0.12s ease; /* smooth hover/press */
+}
+
+/* Hover effect: lifts button slightly */
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Active effect: button pressed */
+button:active {
+  transform: translateY(3px); /* press down */
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.2),
+    inset 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* ===== BUTTON COLORS ===== */
+
+/* Operators */
+.orange { background: linear-gradient(145deg, #f7bfa0, #ffd8c0); }
+.divide { background: linear-gradient(145deg, #f7d6a0, #fff0c0); }
+.multiply { background: linear-gradient(145deg, #f0c0d8, #ffd6f0); }
+.subtract { background: linear-gradient(145deg, #c0e6d8, #e0f8ef); }
+.add { background: linear-gradient(145deg, #b0d4f7, #d0e6ff); }
+
+/* Special buttons (AC, delete, parentheses) */
+.gray { background: linear-gradient(145deg, #d8c3a5, #f0e0c2); }
+
+/* Number buttons */
+.n0 { background: linear-gradient(145deg, #d0f4de, #e0f9eb); }
+.n1 { background: linear-gradient(145deg, #ffb3c1, #ffcce0); }
+.n2 { background: linear-gradient(145deg, #ffcb77, #ffe0b0); }
+.n3 { background: linear-gradient(145deg, #caffbf, #e0ffd6); }
+.n4 { background: linear-gradient(145deg, #caffbf, #e0ffd6); }
+.n5 { background: linear-gradient(145deg, #9bf6ff, #c0f7ff); }
+.n6 { background: linear-gradient(145deg, #ffd6ff, #ffe5ff); }
+.n7 { background: linear-gradient(145deg, #a8dadc, #d0f0f2); }
+.n8 { background: linear-gradient(145deg, #ffe5d9, #fff1e5); }
+.n9 { background: linear-gradient(145deg, #fcd5ce, #ffe5e0); }
+.ndot { background: linear-gradient(145deg, #fefae0, #fffaf5); }
